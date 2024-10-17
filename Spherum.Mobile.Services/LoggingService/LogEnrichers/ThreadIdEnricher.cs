@@ -1,6 +1,3 @@
-using Serilog.Core;
-using Serilog.Events;
-
 namespace Spherum.Mobile.Services.LoggingService.LogEnrichers;
 
 /// <summary>

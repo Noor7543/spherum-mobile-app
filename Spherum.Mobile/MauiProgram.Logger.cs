@@ -1,9 +1,3 @@
-using Microsoft.Extensions.Logging;
-using Serilog;
-using Serilog.Events;
-using Spherum.Mobile.Services.LoggingService.Extensions;
-using LoggerExtensions = Spherum.Mobile.Services.LoggingService.Extensions.LoggerExtensions;
-
 namespace Spherum.Mobile;
 
 public static partial class MauiProgram

@@ -1,9 +1,3 @@
-using System.Diagnostics;
-using Serilog.Core;
-using Serilog.Events;
-using Serilog.Formatting;
-using Spherum.Mobile.Services.LoggingService.Extensions;
-
 namespace Spherum.Mobile.Services.LoggingService.Sinks;
 
 /// <summary>
