@@ -1,6 +1,6 @@
 ﻿namespace Spherum.Mobile;
 
-public partial class MainPage : ContentPage
+public partial class MainPage
 {
     int count = 0;
 
