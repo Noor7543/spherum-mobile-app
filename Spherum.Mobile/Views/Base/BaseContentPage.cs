@@ -1,6 +1,3 @@
-using Spherum.Mobile.Controls;
-using Spherum.Mobile.ViewModels.Base;
-
 namespace Spherum.Mobile.Views.Base;
 
 public class BaseContentPage : ContentPage

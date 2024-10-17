@@ -1,8 +1,4 @@
-﻿using CommunityToolkit.Maui;
-using Microsoft.Extensions.Logging;
-using Xe.AcrylicView;
-
-namespace Spherum.Mobile;
+﻿namespace Spherum.Mobile;
 
 public static partial class MauiProgram
 {

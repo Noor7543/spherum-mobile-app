@@ -1,12 +1,3 @@
-using Microsoft.Extensions.Logging;
-using Serilog;
-using Serilog.Events;
-using Serilog.Extensions.Logging;
-using Serilog.Formatting;
-using Serilog.Templates;
-using Spherum.Mobile.Services.LoggingService.LogEnrichers;
-using ILogger = Serilog.ILogger;
-
 namespace Spherum.Mobile.Services.LoggingService.Extensions;
 
 /// <summary>

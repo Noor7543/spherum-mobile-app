@@ -1,16 +1,14 @@
-using CommunityToolkit.Mvvm.ComponentModel;
-
 namespace Spherum.Mobile.ViewModels.Base;
 
 /* All view models to inherit from this class and mark themselves a `public sealed partial` to get
  NotifyPropertyChanged and perf benefits */
 public partial class BaseViewModel : ObservableObject, IQueryAttributable, IDisposable
 {
-    // readonly IShell _shell;
+    readonly IShell _shell;
 
-    protected internal BaseViewModel(/*IShell shell*/)
+    protected internal BaseViewModel(IShell shell)
     {
-        // _shell = shell;
+        _shell = shell;
     }
 
     [ObservableProperty]
