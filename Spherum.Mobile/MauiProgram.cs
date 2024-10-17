@@ -4,7 +4,7 @@ using Xe.AcrylicView;
 
 namespace Spherum.Mobile;
 
-public static class MauiProgram
+public static partial class MauiProgram
 {
     public static MauiApp CreateMauiApp()
     {
@@ -21,6 +21,8 @@ public static class MauiProgram
                 fonts.AddFont("SourceSansPro-Regular.ttf", "SourceSansProRegular");
                 fonts.AddFont("SourceSansPro-SemiBold.ttf", "SourceSansProSemiBold");
             });
+
+        builder.Services.ConfigureAndAddLogger();
 
 #if DEBUG
         builder.Logging.AddDebug();
