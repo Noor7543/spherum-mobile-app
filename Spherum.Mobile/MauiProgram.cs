@@ -16,9 +16,17 @@ public static partial class MauiProgram
                 fonts.AddFont("SourceSansPro-Bold.ttf", "SourceSansProBold");
                 fonts.AddFont("SourceSansPro-Regular.ttf", "SourceSansProRegular");
                 fonts.AddFont("SourceSansPro-SemiBold.ttf", "SourceSansProSemiBold");
+            })
+            .ConfigureMauiHandlers(handlers =>
+            {
+                // adds platform specific handlers via partial classes (check platforms folder for implementations)
+                handlers.RegisterHandlers();
             });
 
         builder.Services.ConfigureAndAddLogger();
+        builder.Services.RegisterServices();
+        builder.Services.RegisterViewModels();
+        builder.Services.RegisterViews();
 
 #if DEBUG
         builder.Logging.AddDebug();

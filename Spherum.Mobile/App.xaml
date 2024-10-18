@@ -4,6 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Spherum.Mobile"
              xmlns:controls="clr-namespace:Spherum.Mobile.Controls"
+             xmlns:converters="clr-namespace:Spherum.Mobile.Converters"
              x:Class="Spherum.Mobile.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -62,6 +63,9 @@
             <x:String x:Key="SansProBoldFont">SourceSansProBold</x:String>
             <x:String x:Key="SansProSemiBoldFont">SourceSansProSemiBold</x:String>
 
+            <!-- converters -->
+            <converters:GenderToImageSourceConverter x:Key="GenderToImageSourceConverter" />
+
             <ControlTemplate x:Key="BaseViewTemplate">
                 <Grid RowDefinitions="*">
                     <ContentPresenter />
@@ -73,6 +77,112 @@
 
                 </Grid>
             </ControlTemplate>
+
+            <Style x:Key="PrimarySeparatorStyle"
+                   TargetType="BoxView">
+                <Setter Property="BackgroundColor"
+                        Value="Transparent" />
+                <Setter Property="Color"
+                        Value="{StaticResource Primary}" />
+                <Setter Property="HeightRequest"
+                        Value="1" />
+            </Style>
+
+            <Style x:Key="BaseContentPageStyle"
+                   TargetType="ContentPage">
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource Gray100}" />
+                <Setter Property="Shell.NavBarIsVisible"
+                        Value="False" />
+                <Setter Property="Shell.PresentationMode"
+                        Value="Animated" />
+            </Style>
+
+            <Style TargetType="Border"
+                   x:Key="StudentCardBorderStyle">
+                <Setter Property="Stroke"
+                        Value="Transparent" />
+                <Setter Property="StrokeShape"
+                        Value="RoundRectangle 8,8,8,8" />
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource White}" />
+            </Style>
+
+            <Style TargetType="Border"
+                   x:Key="IdCardTextBorderStyle">
+                <Setter Property="Stroke"
+                        Value="{StaticResource PrimaryDark}" />
+                <Setter Property="StrokeThickness"
+                        Value="1" />
+                <Setter Property="StrokeShape"
+                        Value="RoundRectangle -18,4,4,-18" />
+                <Setter Property="Padding"
+                        Value="10,12" />
+                <Setter Property="BackgroundColor"
+                        Value="Gold" />
+            </Style>
+
+            <Style TargetType="Border"
+                   x:Key="ProfileImageBorderStyle">
+                <Setter Property="Stroke"
+                        Value="Transparent" />
+                <Setter Property="StrokeShape"
+                        Value="RoundRectangle 10,10,10,10" />
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource Gray100}" />
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="CenteredLabelStyle">
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+                <Setter Property="VerticalTextAlignment"
+                        Value="Center" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource Black}" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource SansProRegularFont}" />
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="TitleLabelStyle">
+                <Setter Property="TextColor"
+                        Value="{StaticResource Primary}" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource SansProBoldFont}" />
+                <Setter Property="FontSize"
+                        Value="18" />
+                <Setter Property="MaxLines"
+                        Value="1" />
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="NormalLabelStyle">
+                <Setter Property="TextColor"
+                        Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource SansProRegularFont}" />
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="TitleSpanStyle">
+                <Setter Property="TextColor"
+                        Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource SansProSemiBoldFont}" />
+                <Setter Property="FontSize"
+                        Value="10" />
+            </Style>
+
+            <Style TargetType="Label"
+                   x:Key="RegularSpanStyle">
+                <Setter Property="TextColor"
+                        Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource SansProRegularFont}" />
+                <Setter Property="FontSize"
+                        Value="16" />
+            </Style>
 
             <Style TargetType="ActivityIndicator">
                 <Setter Property="Color"

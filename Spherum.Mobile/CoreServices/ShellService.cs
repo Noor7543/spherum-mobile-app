@@ -86,7 +86,6 @@ public sealed class ShellService : IShell
             }
         });
 
-        //_logger.LogInformation("Navigating {route} with params {@p}", route, param); // quite verbose
         _logger.LogInformation("Navigating {route} with params", route);
     }
 
@@ -96,7 +95,7 @@ public sealed class ShellService : IShell
 
         var snackBarOptions = new SnackbarOptions
         {
-            BackgroundColor = Application.Current?.Resources["BlacksGreysCharcoal"] as Color ?? Colors.DarkGray,
+            BackgroundColor = Colors.DarkGray,
             TextColor = Colors.White,
             CornerRadius = new CornerRadius(4),
             Font = Microsoft.Maui.Font.OfSize("SourceSansProRegular", 16)

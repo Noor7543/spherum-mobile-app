@@ -13,3 +13,5 @@ global using ILogger = Serilog.ILogger;
 global using Serilog.Core;
 global using System.Diagnostics;
 global using LoggerExtensions = Spherum.Mobile.Services.LoggingService.Extensions.LoggerExtensions;
+global using System.Collections.ObjectModel;
+global using Spherum.Mobile.Common.Fake;

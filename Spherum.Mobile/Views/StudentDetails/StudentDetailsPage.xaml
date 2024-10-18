@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<base:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:base="clr-namespace:Spherum.Mobile.Views.Base"
+                      xmlns:studentDetails="clr-namespace:Spherum.Mobile.ViewModels.StudentDetails;assembly=Spherum.Mobile.ViewModels"
+                      xmlns:models="clr-namespace:Spherum.Mobile.Common.Models;assembly=Spherum.Mobile.Common"
+                      xmlns:localization="clr-namespace:Spherum.Mobile.Common.Localization;assembly=Spherum.Mobile.Common"
+                      x:Class="Spherum.Mobile.Views.StudentDetails.StudentDetailsPage"
+                      x:DataType="studentDetails:StudentDetailsPageViewModel"
+                      Title="Details">
+    <Grid ColumnDefinitions="*,*"
+          RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+          RowSpacing="10"
+          ColumnSpacing="10"
+          Padding="16,10"
+          BindingContext="{Binding SelectedStudent, Source={RelativeSource AncestorType={x:Type studentDetails:StudentDetailsPageViewModel}}}"
+          x:DataType="models:Student">
+        <!-- Student information -->
+        <Label Style="{StaticResource TitleLabelStyle}"
+               Text="{x:Static localization:AppStrings.StudentInformation}" />
+        <!-- Member ID -->
+        <Label Grid.Column="1"
+               HorizontalTextAlignment="End"
+               VerticalTextAlignment="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="{x:Static localization:AppStrings.StudentId}" />
+                    <Span FontFamily="{StaticResource SansProBoldFont}"
+                          Text="{Binding Id}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <!-- First name -->
+        <Label Grid.Row="1">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Style="{StaticResource TitleSpanStyle}"
+                          Text="{x:Static localization:AppStrings.FirstName}" />
+                    <Span Text="&#x0a;" />
+                    <Span Style="{StaticResource RegularSpanStyle}"
+                          Text="{Binding FirstName}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <!-- Last name -->
+        <Label Grid.Row="1"
+               Grid.Column="1">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Style="{StaticResource TitleSpanStyle}"
+                          Text="{x:Static localization:AppStrings.LastName}" />
+                    <Span Text="&#x0a;" />
+                    <Span Style="{StaticResource RegularSpanStyle}"
+                          Text="{Binding LastName}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <!-- Nationality -->
+        <Label Grid.Row="2"
+               Grid.ColumnSpan="2">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Style="{StaticResource TitleSpanStyle}"
+                          Text="{x:Static localization:AppStrings.Nationality}" />
+                    <Span Text="&#x0a;" />
+                    <Span Style="{StaticResource RegularSpanStyle}"
+                          Text="{Binding Nationality}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <!-- Address -->
+        <Label Grid.Row="3"
+               Style="{StaticResource TitleLabelStyle}"
+               Text="{x:Static localization:AppStrings.Address}" />
+        <!-- Street address -->
+        <Label Grid.Row="4">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Style="{StaticResource TitleSpanStyle}"
+                          Text="{x:Static localization:AppStrings.Street}" />
+                    <Span Text="&#x0a;" />
+                    <Span Style="{StaticResource RegularSpanStyle}"
+                          Text="{Binding ContactInformation.Address}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <!-- City -->
+        <Label Grid.Row="5">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Style="{StaticResource TitleSpanStyle}"
+                          Text="{x:Static localization:AppStrings.City}" />
+                    <Span Text="&#x0a;" />
+                    <Span Style="{StaticResource RegularSpanStyle}"
+                          Text="{Binding ContactInformation.City}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <!-- State -->
+        <Label Grid.Row="5"
+               Grid.Column="1">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Style="{StaticResource TitleSpanStyle}"
+                          Text="{x:Static localization:AppStrings.State}" />
+                    <Span Text="&#x0a;" />
+                    <Span Style="{StaticResource RegularSpanStyle}"
+                          Text="{Binding ContactInformation.State}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <!-- Country -->
+        <Label Grid.Row="6">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Style="{StaticResource TitleSpanStyle}"
+                          Text="{x:Static localization:AppStrings.Country}" />
+                    <Span Text="&#x0a;" />
+                    <Span Style="{StaticResource RegularSpanStyle}"
+                          Text="{Binding ContactInformation.Country}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <!-- ZIP code -->
+        <Label Grid.Row="6"
+               Grid.Column="1">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Style="{StaticResource TitleSpanStyle}"
+                          Text="{x:Static localization:AppStrings.ZipCode}" />
+                    <Span Text="&#x0a;" />
+                    <Span Style="{StaticResource RegularSpanStyle}"
+                          Text="{Binding ContactInformation.PostalCode}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <!-- Contact -->
+        <Label Grid.Row="7"
+               Style="{StaticResource TitleLabelStyle}"
+               Text="{x:Static localization:AppStrings.Contact}" />
+        <!-- Email -->
+        <Label Grid.Row="8">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Style="{StaticResource TitleSpanStyle}"
+                          Text="{x:Static localization:AppStrings.Email}" />
+                    <Span Text="&#x0a;" />
+                    <Span Style="{StaticResource RegularSpanStyle}"
+                          Text="{Binding ContactInformation.Email}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <!-- Phone -->
+        <Label Grid.Row="8"
+               Grid.Column="1">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Style="{StaticResource TitleSpanStyle}"
+                          Text="{x:Static localization:AppStrings.Phone}" />
+                    <Span Text="&#x0a;" />
+                    <Span Style="{StaticResource RegularSpanStyle}"
+                          Text="{Binding ContactInformation.Phone}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </Grid>
+</base:BaseContentPage>

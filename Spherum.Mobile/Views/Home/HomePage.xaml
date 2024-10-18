@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<base:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:base="clr-namespace:Spherum.Mobile.Views.Base"
+                      xmlns:dataTemplates="clr-namespace:Spherum.Mobile.Views.DataTemplates"
+                      xmlns:models="clr-namespace:Spherum.Mobile.Common.Models;assembly=Spherum.Mobile.Common"
+                      xmlns:home="clr-namespace:Spherum.Mobile.ViewModels.Home;assembly=Spherum.Mobile.ViewModels"
+                      Style="{StaticResource BaseContentPageStyle}"
+                      x:Class="Spherum.Mobile.Views.Home.HomePage"
+                      x:DataType="home:HomePageViewModel"
+                      Shell.NavBarIsVisible="True"
+                      Title="Students"
+                      LoadingMessage="{Binding LoadingMessage}"
+                      IsBusy="{Binding IsBusy}">
+    <base:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="StudentItemDataTemplate"
+                          x:DataType="models:Student">
+                <VerticalStackLayout Padding="8">
+                    <dataTemplates:StudentDataItem />
+                </VerticalStackLayout>
+            </DataTemplate>
+        </ResourceDictionary>
+    </base:BaseContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"
+                     Priority="0"
+                     IconImageSource="plus_icon"
+                     Text="Add"
+                     Command="{Binding NavigateToStudentFormCommand}"/>
+    </ContentPage.ToolbarItems>
+    <CollectionView ItemTemplate="{StaticResource StudentItemDataTemplate}"
+                    ItemsSource="{Binding StudentsList}"
+                    SelectionMode="Single"
+                    SelectedItem="{Binding SelectedStudent}"
+                    SelectionChangedCommand="{Binding NavigateToStudentDetailPageCommand}"
+                    RemainingItemsThreshold="2"
+                    RemainingItemsThresholdReachedCommand="{Binding FetchMoreStudentsCommand}"
+                    Margin="8" />
+</base:BaseContentPage>
