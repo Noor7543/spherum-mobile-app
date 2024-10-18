@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:controls="clr-namespace:Spherum.Mobile.Controls"
+      x:Class="Spherum.Mobile.Controls.PrimaryEntry"
+      x:Name="Root">
+    <Grid.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TitleDefaultStyle"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="16" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource Primary}" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource SansProSemiBoldFont}" />
+                <Setter Property="VerticalTextAlignment"
+                        Value="Center" />
+                <Setter Property="Margin"
+                        Value="12,0" />
+            </Style>
+            <Style x:Key="ErrorLabelStyle"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="12" />
+                <Setter Property="TextColor"
+                        Value="Red" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource SansProSemiBoldFont}" />
+                <Setter Property="VerticalTextAlignment"
+                        Value="Center" />
+                <Setter Property="Margin"
+                        Value="8,0" />
+            </Style>
+            <Style x:Key="EntryStyle"
+                   TargetType="controls:BorderLessEntry">
+                <Setter Property="Margin"
+                        Value="12,1,12,1" />
+                <Setter Property="HorizontalOptions"
+                        Value="FillAndExpand" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Start" />
+                <Setter Property="HeightRequest"
+                        Value="40" />
+                <Setter Property="VerticalTextAlignment"
+                        Value="Center" />
+                <Setter Property="VerticalOptions"
+                        Value="Center" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource SansProRegularFont}" />
+                <Setter Property="FontSize"
+                        Value="16" />
+                <Setter Property="TextColor"
+                        Value="{AppThemeBinding Light={StaticResource Black},
+                        Dark={StaticResource White}}" />
+            </Style>
+            <Style x:Key="EntryBorderStyle"
+                   TargetType="Border">
+                <Setter Property="Padding"
+                        Value="0" />
+                <Setter Property="HorizontalOptions"
+                        Value="FillAndExpand" />
+                <Setter Property="Stroke"
+                        Value="{StaticResource PrimaryDark}" />
+                <Setter Property="StrokeThickness"
+                        Value="1" />
+                <Setter Property="VerticalOptions"
+                        Value="Start" />
+                <Setter Property="HeightRequest"
+                        Value="40" />
+                <Setter Property="StrokeShape"
+                        Value="RoundRectangle 4,4,4,4" />
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource White}" />
+            </Style>
+            <Style x:Key="EntryBorderErrorStyle"
+                   TargetType="Border">
+                <Setter Property="Padding"
+                        Value="0" />
+                <Setter Property="HorizontalOptions"
+                        Value="FillAndExpand" />
+                <Setter Property="Stroke"
+                        Value="Red" />
+                <Setter Property="StrokeThickness"
+                        Value="1" />
+                <Setter Property="VerticalOptions"
+                        Value="Start" />
+                <Setter Property="HeightRequest"
+                        Value="40" />
+                <Setter Property="StrokeShape"
+                        Value="RoundRectangle 4,4,4,4" />
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource White}" />
+            </Style>
+        </ResourceDictionary>
+    </Grid.Resources>
+    <Grid RowDefinitions="Auto,*,Auto"
+          RowSpacing="4"
+          Padding="0">
+        <Label x:Name="EntryTitle"
+               Margin="2,0,0,0"
+               IsVisible="False"
+               Style="{StaticResource TitleDefaultStyle}"
+               Text="{Binding Title, Source={x:Reference Root}}" />
+        <Border Grid.Row="1"
+                Style="{Binding BorderStyle, Source={x:Reference Root}}">
+            <controls:BorderLessEntry Focused="EntryControl_OnFocused"
+                                      Keyboard="{Binding KeyboardType, Source={x:Reference Root}}"
+                                      Placeholder="{Binding Placeholder, Source={x:Reference Root}}"
+                                      ReturnCommand="{Binding ReturnCommand, Source={x:Reference Root}}"
+                                      ReturnType="{Binding ReturnType, Source={x:Reference Root}}"
+                                      Style="{Binding EntryStyle, Source={x:Reference Root}}"
+                                      Text="{Binding Text, Source={x:Reference Root}}"
+                                      TextChanged="EntryControl_OnTextChanged"
+                                      Unfocused="EntryControl_OnUnfocused" />
+        </Border>
+        <Label Grid.Row="2"
+               IsVisible="{Binding HasError, Source={x:Reference Root}}"
+               Style="{StaticResource ErrorLabelStyle}"
+               Text="{Binding ErrorText, Source={x:Reference Root}}" />
+    </Grid>
+</Grid>
